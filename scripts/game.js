@@ -17,7 +17,26 @@ const images = [
 ];
 //function to randomize images in cards
 const randomize = () => {
-  images.sort(() => Math.random() - 0.5);
-  console.log(images);
+  return images.sort(() => Math.random() - 0.5);
 };
-randomize();
+
+//generate cards on screen
+const cardScreen = () => {
+  const cardPic = randomize();
+  cardPic.forEach((element) => {
+    const card = document.createElement("div");
+    const front = document.createElement("img");
+    const back = document.createElement("div");
+    card.classList = "card";
+    front.classList = "front";
+    back.classList = "back";
+    //adding image to the card
+    front.src = element;
+    //adding cards to game section
+    game.appendChild(card);
+    game.appendChild(front);
+    game.appendChild(back);
+  });
+};
+
+cardScreen();
