@@ -36,6 +36,10 @@ const cardScreen = () => {
     game.appendChild(card);
     card.appendChild(front);
     card.appendChild(back);
+
+    card.onclick = () => {
+      card.classList.toggle("toggle");
+    };
   });
 };
 
