@@ -80,3 +80,7 @@ button {
   align-self: center;
   font-size: 30px;
 }
+
+.no-flip {
+  pointer-events: none;
+}

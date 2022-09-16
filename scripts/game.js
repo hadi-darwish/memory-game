@@ -67,7 +67,7 @@ const check = (x) => {
       console.log("match");
       flippedCards.forEach((element) => {
         element.classList.remove("flipped");
-        element.style.pointerEvents = "none";
+        element.classList.add("no-flip");
       });
     } else {
       console.log("wrong");
@@ -81,8 +81,17 @@ const check = (x) => {
     if (livesCount === 0) {
       const score = document.getElementById("score");
       score.style.color = "red";
-      game.innerHTML = `<img class="center" src="../images/loser.png" alt=lost">
-      <br>`;
+      setTimeout(
+        () =>
+          (game.innerHTML = `<img class="center" src="../images/loser.png" alt=lost">`),
+        500
+      );
+    }
+    if (document.querySelectorAll(".no-flip").length === 6) {
+      setTimeout(
+        () => (document.getElementById("win").innerHTML = "YOU WIN"),
+        500
+      );
     }
   }
 };
