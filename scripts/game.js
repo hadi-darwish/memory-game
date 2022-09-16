@@ -4,6 +4,11 @@ const lives = document.querySelector(".lives");
 //lives that player have to play with lose them when choosing wrong
 const livesCount = 5;
 
+//first click
+let c1;
+
+let c2;
+
 //adding lives to page screen
 lives.textContent = livesCount;
 //all images of languages
@@ -39,8 +44,31 @@ const cardScreen = () => {
 
     card.onclick = () => {
       card.classList.toggle("toggle");
+      check(card);
     };
   });
+};
+
+//function to check if cards have the same pic
+const check = (x) => {
+  console.log(x);
+  const clicked = x;
+  x.classList.add("flipped");
+  const flippedCards = document.querySelectorAll(".flipped");
+
+  if (flippedCards.length === 2) {
+    if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
+      console.log("match");
+      flippedCards[0].classList.remove("flipped");
+      flippedCards[1].classList.remove("flipped");
+    } else {
+      console.log("wrong");
+      flippedCards.forEach((element) => {
+        element.classList.remove("flipped");
+        setTimeout(() => element.classList.remove("toggle"), 500);
+      });
+    }
+  }
 };
 
 cardScreen();
