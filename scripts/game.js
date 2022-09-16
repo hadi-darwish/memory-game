@@ -34,8 +34,8 @@ const cardScreen = () => {
     front.src = element;
     //adding cards to game section
     game.appendChild(card);
-    game.appendChild(front);
-    game.appendChild(back);
+    card.appendChild(front);
+    card.appendChild(back);
   });
 };
 
