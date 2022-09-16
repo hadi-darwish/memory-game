@@ -1,13 +1,19 @@
 //grabbing elements from html
 const game = document.querySelector(".game");
 const lives = document.querySelector(".lives");
+const restart = document.getElementById("restart");
 //lives that player have to play with lose them when choosing wrong
-let livesCount = 5;
+let livesCount = 2;
 
 //first click
 let c1;
 
 let c2;
+
+//restart game
+restart.onclick = () => {
+  location.reload();
+};
 
 //adding lives to page screen
 lives.textContent = livesCount;
@@ -44,7 +50,6 @@ const cardScreen = () => {
 
     card.onclick = () => {
       card.classList.toggle("toggle");
-      0;
       check(card);
     };
   });
@@ -76,7 +81,8 @@ const check = (x) => {
     if (livesCount === 0) {
       const score = document.getElementById("score");
       score.style.color = "red";
-      game.innerHTML = `<img class="center" src="../images/loser.png" alt=lost">`;
+      game.innerHTML = `<img class="center" src="../images/loser.png" alt=lost">
+      <br>`;
     }
   }
 };
