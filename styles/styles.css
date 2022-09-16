@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5rem;
+  background-color: teal;
 }
 .game {
   display: grid;
@@ -46,4 +47,28 @@ body {
 /* this to flip the card */
 .toggle {
   transform: rotateY(180deg);
+}
+
+.title {
+}
+
+.title > h1 {
+  text-align: center;
+  font-size: 64px;
+}
+.title > h3 {
+  text-align: center;
+  font-size: 52px;
+  color: cyan;
+}
+
+.score > h1 {
+  text-align: center;
+  font-size: 64px;
+  color: cyan;
+}
+
+.center {
+  justify-self: center;
+  margin: 0 50%;
 }

@@ -2,7 +2,7 @@
 const game = document.querySelector(".game");
 const lives = document.querySelector(".lives");
 //lives that player have to play with lose them when choosing wrong
-const livesCount = 5;
+let livesCount = 5;
 
 //first click
 let c1;
@@ -44,6 +44,7 @@ const cardScreen = () => {
 
     card.onclick = () => {
       card.classList.toggle("toggle");
+      0;
       check(card);
     };
   });
@@ -53,20 +54,29 @@ const cardScreen = () => {
 const check = (x) => {
   console.log(x);
   const clicked = x;
-  x.classList.add("flipped");
+  x.classList.toggle("flipped");
   const flippedCards = document.querySelectorAll(".flipped");
 
   if (flippedCards.length === 2) {
     if (flippedCards[0].innerHTML === flippedCards[1].innerHTML) {
       console.log("match");
-      flippedCards[0].classList.remove("flipped");
-      flippedCards[1].classList.remove("flipped");
+      flippedCards.forEach((element) => {
+        element.classList.remove("flipped");
+        element.style.pointerEvents = "none";
+      });
     } else {
       console.log("wrong");
       flippedCards.forEach((element) => {
         element.classList.remove("flipped");
         setTimeout(() => element.classList.remove("toggle"), 500);
       });
+      livesCount--;
+      lives.textContent = livesCount;
+    }
+    if (livesCount === 0) {
+      const score = document.getElementById("score");
+      score.style.color = "red";
+      game.innerHTML = `<img class="center" src="../images/loser.png" alt=lost">`;
     }
   }
 };
