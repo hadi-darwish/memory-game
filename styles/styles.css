@@ -1,0 +1,82 @@
+/* CSS Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  background-color: teal;
+}
+.game {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3, 10rem);
+  grid-template-rows: repeat(2, 10rem);
+  perspective: 800px;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.back {
+  background-color: yellowgreen;
+  backface-visibility: hidden;
+}
+
+/* this to flip the card */
+.toggle {
+  transform: rotateY(180deg);
+}
+
+.title {
+}
+
+.title > h1 {
+  text-align: center;
+  font-size: 64px;
+}
+.title > h3 {
+  text-align: center;
+  font-size: 52px;
+  color: cyan;
+}
+
+.score > h1 {
+  text-align: center;
+  font-size: 64px;
+  color: cyan;
+}
+
+.center {
+  justify-self: center;
+  margin: 0 50%;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+  background-color: yellowgreen;
+  align-self: center;
+  font-size: 30px;
+}
